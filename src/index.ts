@@ -1,9 +1,12 @@
+import 'dotenv/config'
 import express from "express";
+import { db } from "./database/db";
+import { router } from './routes';
 
 const app = express();
+app.use(router);
 
-app.use("/",async (req, res) => {
-    res.status(200).end("Hello World")
-})
-
-app.listen(process.env.PORT)
+app.listen(process.env.PORT, async () => {
+    await db.sync();
+    console.log(`App running on ${process.env.PORT}`)
+});

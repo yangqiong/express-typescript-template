@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev -r dotenv/config --respawn ./src/index.ts",
-    "start": "ts-node -r dotenv/config dist/index.js"
+    "build": "tsc",
+    "start": "node -r dotenv/config dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +20,8 @@
     "typescript": "^4.6.2"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.17.0"
   }
 }
